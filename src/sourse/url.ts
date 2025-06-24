@@ -1,2 +1,5 @@
 export let mainUrl:string = 'http://localhost:3000'
 export let booksUrl:string = mainUrl +'/books'
+export let userUrl:string = mainUrl +'/users'
+export let userLoginUrl:string = userUrl +'/auth'
+export let userRegisterUrl:string = userUrl +'/register'
