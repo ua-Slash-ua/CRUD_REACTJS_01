@@ -1,8 +1,8 @@
 import './App.css'
 import {Header} from './components/header/header.tsx'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Home} from "./components/pages/home.tsx";
-import {Manage} from "./components/pages/manage.tsx";
+import {Home} from "./components/pages/home/home.tsx";
+import {Manage} from "./components/pages/manage/manage.tsx";
 
 
 
