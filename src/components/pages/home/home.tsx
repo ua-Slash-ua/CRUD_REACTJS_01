@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 import type {Book} from "../../../types.ts";
 import {getBooks} from "../../../api/books/getBooks.ts";
 import './home.css'
+import {Registration} from "../../pop-up/registration/registration.tsx";
+import {Login} from "../../pop-up/login/login.tsx";
 
 
 export function Home() {
@@ -11,6 +13,7 @@ export function Home() {
     useEffect(() => {
         getBooks()
             .then(data => {
+                console.log(books)
                 setBooks(data);
                 setLoading(false);
             })
@@ -23,18 +26,23 @@ export function Home() {
     if (loading) return <p>Завантаження...</p>;
 
     return (
-        <div>
-            <h1>Бібліотека книг</h1>
-            {books.map((book: Book) => (
-                <div key={book.id} className="book-item">
-                    <h3>{book.title}</h3>
-                    <p>Автор: {book.author}</p>
-                    <p className={book.available ? '' : 'unavailable'}>
-                        {book.available ? 'Доступна' : 'Недоступна'}
-                    </p>
-                </div>
-            ))}
+        <>
+            <div>
+                <h1>Бібліотека книг</h1>
 
-        </div>
+                {books.map((book: Book) => (
+                    <div key={book.id} className="book-item">
+                        <h3>{book.title}</h3>
+                        <p>Автор: {book.author}</p>
+                        <p className={book.available ? '' : 'unavailable'}>
+                            {book.available ? 'Доступна' : 'Недоступна'}
+                        </p>
+                    </div>
+                ))}
+
+            </div>
+            <Registration />
+            <Login />
+        </>
     );
 }

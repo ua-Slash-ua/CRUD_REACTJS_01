@@ -4,3 +4,8 @@ export type Book = {
     author: string,
     available: boolean
 }
+
+export type HeaderProps = {
+    isAuth: boolean,
+    setIsAuth?: (value: (((prevState: boolean) => boolean) | boolean)) => void
+}
